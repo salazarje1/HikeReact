@@ -1,0 +1,39 @@
+.Signup-form {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Signup-form > h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5em;
+}
+
+.Signup-form > label {
+    font-size: 1.5rem;
+}
+
+.Signup-form > input {
+    font-size: 1.2em;
+    padding: .5em;
+    width: 30vw;
+    margin: .4em 0 1.4em;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+.Signup-form > button {
+    padding: .5em 2em;
+    margin-top: .5em;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.Signup-form-user {
+    margin-right: 10em;
+}

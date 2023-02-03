@@ -1,0 +1,19 @@
+.Hikes {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Hikes-title {
+    margin-top: 2em;
+    font-size: 3em;
+}
+
+.Hikes-div {
+    width: 60vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 5em;
+}

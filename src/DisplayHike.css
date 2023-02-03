@@ -1,0 +1,57 @@
+.DisplayHike {
+    width: 20em;
+    height: 24em;
+    border: 1px solid lightblue;
+    border-radius: 10px;
+    margin: 20px;
+    text-decoration: none;
+    color: black;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.DisplayHike:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.DisplayHike-title {
+    margin-top: 2em;
+}
+
+.DisplayHike-description {
+    margin: 2em 2em;
+}
+
+.DisplayHike-location {
+    display: flex;
+
+}
+
+a.DisplayHike-btn {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    padding: 14px;
+}
+
+.DisplayHike-btn {
+    margin: 2em;
+    font-size: 1rem;
+    width: 8em;
+    height: 3em;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(11, 189, 91);
+    color: white; 
+    box-shadow: rgba(149, 157, 165, 0.2) 5px 6px 26px;
+    cursor:grab; 
+}
+
+.DisplayHike-btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.added {
+    pointer-events: none;
+    background-color: grey;
+}
+

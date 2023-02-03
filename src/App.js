@@ -1,23 +1,86 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import jwt from 'jsonwebtoken'; 
 import './App.css';
 
+import UserApi from './UserApi';
+import NavBar from './NavBar'; 
+import Routes from './Routes'; 
+
+import useLocalStorage from './hooks/useLocalStorage';
+import UserContext from './context/UserContext';
+
 function App() {
+
+  const [token, setToken] = useLocalStorage('token', null); 
+  const [currUser, setCurrUser] = useState(null); 
+
+  const addToken = async ({ token }) => {
+    console.log(token); 
+    setToken(token); 
+  }
+
+  useEffect(() => {
+    async function getCurrUser() {
+      if(token) {
+        try {
+          let { username } = jwt.decode(token);
+          UserApi.token = token;
+          let currUser = await UserApi.getUser(username);
+          setCurrUser(currUser.user); 
+        } catch(err) {
+          console.error(err);
+          setCurrUser(null); 
+        }
+      }
+    }
+
+    getCurrUser();
+  }, [token]); 
+
+  const login = async (data) => {
+    try {
+      let token = await UserApi.login(data);
+      addToken(token.data);
+      return { success: true }; 
+    } catch(err) {
+      console.error(err);
+      return err; 
+    }
+  }
+
+  const signup = async (data) => {
+    try {
+      let token = await UserApi.signupUser(data);
+      addToken(token.data); 
+      return { success: true } 
+    } catch(err) {
+      console.error(err);
+      return err; 
+    }
+  }
+
+  const logout = () => {
+    addToken({token: null});
+    setCurrUser(null); 
+  }
+
+  const deleteUser = async(username) => {
+    try {
+      await UserApi.deleteUser(username);
+      logout(); 
+      return { success: true }; 
+    } catch(err) {
+      console.error(err); 
+      return err; 
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UserContext.Provider value={{currUser}}>
+        <NavBar logout={logout} />
+        <Routes login={login} signup={signup} setCurrUser={setCurrUser} deleteUser={deleteUser} />
+      </UserContext.Provider>
     </div>
   );
 }
