@@ -1,16 +1,16 @@
 import axios from "axios"; 
 
-const BASE_API_URL = "http://localhost:5000";
+const BASE_API_URL = "https://hike-trail.online";
 
 class HikeApi {
 
     static async getHikes() {
-        const res = await axios.get('http://localhost:3002/hiketrails')
+        const res = await axios.get(`${BASE_API_URL}/hiketrails`)
         return res.data; 
     }
 
     static async getHike(handle) {
-        const res = await axios.get(`http://localhost:3002/hiketrails/${handle}`);
+        const res = await axios.get(`${BASE_API_URL}/hiketrails/${handle}`);
 
         return res.data;
     }
