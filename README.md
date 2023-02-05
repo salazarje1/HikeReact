@@ -8,7 +8,7 @@ Link to [Hike Site](http://hike-trails.surge.sh/)
 ## APIs
 
 - [User API](https://hike-trail-app.herokuapp.com/)
-- [Trails API](hike-trail.online)
+- [Trails API](https://hike-trail.online)
 - [Mapbox](https://docs.mapbox.com/#maps)
 
 ## Available Scripts
