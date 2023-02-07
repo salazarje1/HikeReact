@@ -2,14 +2,37 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Summary
+My application will show where all the hikes are on a map and give a little inforation about each hike or trail. I built an API that will allow users to add new hikes with different levels of authentication. The application itself will use an API for the user for the site as well. When a user signs up they can save and delete hikes. 
+
+## Functionality 
+The application shows a map with all the hikes save in the Hikes API with the plan of adding more as the site is used. The user will have fuctions added once they sign up for the site: 
+  - Update their account
+  - Delete their account
+  - Links to trails with more information
+  - Save/Remove trials to your account
+
 ## Webpage
 Link to [Hike Site](http://hike-trails.surge.sh/)
 
 ## APIs
 
-- [User API](https://hike-trail-app.herokuapp.com/)
-- [Trails API](hike-trail.online)
+- [User API](https://github.com/salazarje1/hikeusers-api)
+- [Trails API](https://hike-trail.online)
 - [Mapbox](https://docs.mapbox.com/#maps)
+
+## Testing 
+Most of the test added to my application are on the User API. To run the test:
+  1. Move into the the User API directory 
+  2. Run 'jest' from the terminal 
+
+## Bugs 
+There are serveral bugs and unfinished section of my application that will be added: 
+  1. Login/Signup there are no alerts for errors on the form. 
+  2. Login sometimes won't log you in. 
+  3. Hike API doesn't have authentication.
+  4. Hike API possibly adding auth keys and email system
+  5. User API doesn't have authentication. 
 
 ## Available Scripts
 
@@ -22,11 +45,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
