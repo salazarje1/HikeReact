@@ -17,7 +17,7 @@ Link to [Hike Site](http://hike-trails.surge.sh/)
 
 ## APIs
 
-- [User API](https://hike-trail-app.herokuapp.com/)
+- [User API](https://github.com/salazarje1/hikeusers-api)
 - [Trails API](https://hike-trail.online)
 - [Mapbox](https://docs.mapbox.com/#maps)
 
