@@ -8,7 +8,7 @@ import UserHike from './UserHike';
 const Profile = ({ setCurrUser, deleteUser }) => {
     const history = useHistory();
     const { currUser } = useContext(UserContext);
-    console.log(currUser); 
+    
     const INITIALSTATE = {
         firstName: "",
         lastName: "",
@@ -27,6 +27,10 @@ const Profile = ({ setCurrUser, deleteUser }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if(!formData.firstName) formData.firstName = currUser.firstName; 
+        if(!formData.lastName) formData.lastName = currUser.lastName; 
+        if(!formData.email) formData.email = currUser.email; 
 
         const res = await UserApi.updateUser(formData, currUser.username);
         setCurrUser(res);
@@ -48,11 +52,11 @@ const Profile = ({ setCurrUser, deleteUser }) => {
                 <form className='Signup-form' onSubmit={handleSubmit}>
                     <h3 className='Signup-form-user'>Username: {currUser.username}</h3>
                     <label htmlFor='first_name'>First Name</label>
-                    <input type='text' name='firstName' id='first_name' value={currUser.firstName} onChange={handleChange} />
+                    <input type='text' name='firstName' id='first_name' placeholder={currUser.firstName} value={formData.firstName} onChange={handleChange} />
                     <label htmlFor='last_name'>Last Name</label>
-                    <input type='text' name='lastName' id='last_name' value={currUser.lastName} onChange={handleChange} />
+                    <input type='text' name='lastName' id='last_name' placeholder={currUser.lastName} value={formData.lastName} onChange={handleChange} />
                     <label htmlFor='email'>Email</label>
-                    <input type='email' name='email' id='email' value={currUser.email} onChange={handleChange} />
+                    <input type='email' name='email' id='email' placeholder={currUser.email} value={formData.email} onChange={handleChange} />
                     <button className='DisplayHike-btn'>Edit</button>
                 </form>
                 <hr></hr>
