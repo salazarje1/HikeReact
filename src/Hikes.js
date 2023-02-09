@@ -20,6 +20,10 @@ const Hikes = () => {
         getData(); 
     }, []) 
 
+    if(!currUser) {
+        return "Loading..."
+    }
+
     return currUser ? (
         <div className='Hikes'>
             <h1 className='Hikes-title'>Hikes</h1>

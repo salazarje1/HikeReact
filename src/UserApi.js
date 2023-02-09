@@ -14,7 +14,6 @@ class UserApi {
 
     static async signupUser(data) {
         let res = await axios.post(`${BASE_API_URL}users/register`, data, { headers: { Authorization: UserApi.token }})
-        console.log(res); 
         return res; 
     }
 

@@ -15,7 +15,6 @@ function App() {
   const [currUser, setCurrUser] = useState(null); 
 
   const addToken = async ({ token }) => {
-    console.log(token); 
     setToken(token); 
   }
 
